@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "functions": {
+    "app/middleware.ts": {
+      "maxDuration": 30,
+      "runtime": "nodejs18.x"
+    }
+  },
+  "regions": ["iad1"]
+}
