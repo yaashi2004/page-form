@@ -12,12 +12,15 @@ interface NavbarWrapperProps {
 export default function NavbarWrapper({ children }: NavbarWrapperProps) {
     const pathname = usePathname();
     
-    // Hide navbar on Clerk authentication pages
+    // Hide navbar on Clerk authentication pages AND form submission pages
     const isClerkPage = pathname.startsWith("/sign-in") || 
                        pathname.startsWith("/sign-up") || 
                        pathname.startsWith("/user");
     
-    if (isClerkPage) {
+    // Hide navbar on form submission pages (public forms)
+    const isFormSubmissionPage = pathname.startsWith("/submit/");
+    
+    if (isClerkPage || isFormSubmissionPage) {
         return <main className="flex w-full flex-grow">{children}</main>;
     }
     
@@ -36,3 +39,4 @@ export default function NavbarWrapper({ children }: NavbarWrapperProps) {
         </div>
     );
 }
+
