@@ -1,13 +1,6 @@
 import { authMiddleware } from "@clerk/nextjs";
 
-// Temporarily disable auth for deployment testing
-// Remove this when you have Clerk environment variables set up
 export default authMiddleware({
-  // Disable auth temporarily - remove this when ready
-  beforeAuth: (req) => {
-    // Allow all requests to pass through
-    return;
-  },
   // Add public routes that don't require authentication
   publicRoutes: [
     "/",

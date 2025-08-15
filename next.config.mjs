@@ -8,12 +8,6 @@ const nextConfig = {
   // Add Vercel-specific optimizations
   swcMinify: true,
   
-  // Fix Edge Runtime compatibility issues
-  experimental: {
-    // Ensure proper runtime handling
-    runtime: 'nodejs',
-  },
-  
   // Ensure proper handling of Clerk middleware
   async headers() {
     return [
