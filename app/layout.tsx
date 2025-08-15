@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     description: "Create, share, and collect responses from beautiful forms",
     icons: {
         icon: [
+            { url: '/application.png', type: 'image/png' },
             { url: '/favicon.svg', type: 'image/svg+xml' },
             { url: '/paper.svg', type: 'image/svg+xml' },
-            { url: '/favicon.ico', type: 'image/x-icon' }
         ],
-        shortcut: '/favicon.ico',
-        apple: '/favicon.ico',
+        shortcut: '/application.png',
+        apple: '/application.png',
     },
 };
 
