@@ -11,6 +11,7 @@ import {formatDistance} from "date-fns/formatDistance";
 import {FaWpforms} from "react-icons/fa";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
+import { StatsCard } from "@/components/StatsCard";
 
 export default function Home() {
     return (
@@ -90,47 +91,6 @@ function StatsCards(props: StatsCardProps) {
 
         </div>
     );
-}
-
-function StatsCard(
-    {
-        title,
-        value,
-        icon,
-        helperText,
-        loading,
-        className
-    }
-        : {
-        title: string,
-        value: string,
-        icon: ReactNode,
-        helperText: string,
-        className: string,
-        loading: boolean
-    }) {
-
-    return <Card className={className}>
-        <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle>{title}</CardTitle>
-            {icon}
-        </CardHeader>
-        <CardContent>
-            <div className="text-2xl font-bold">
-                {
-                    loading && (
-                        <Skeleton>
-                            <span className="opacity-0">0</span>
-                        </Skeleton>
-                    )
-                }
-                {
-                    !loading && value
-                }
-            </div>
-            <p className="text-xs text-muted-foreground pt-1"> {helperText}</p>
-        </CardContent>
-    </Card>
 }
 
 function FormCardSkeleton() {

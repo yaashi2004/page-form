@@ -3,7 +3,7 @@ import {GetFormById, GetFormWithSubmissions} from "@/actions/form";
 import VisitBtn from "@/components/VisitBtn";
 import FormLinkShare from "@/components/FormLinkShare";
 import {LuView} from "react-icons/lu";
-import {StatsCard} from "@/app/(dashboard)/page";
+import {StatsCard} from "@/components/StatsCard";
 import {ElementsType, FormElementInstance} from "@/components/FormElements";
 import {element} from "prop-types";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
