@@ -12,8 +12,38 @@ import {FaWpforms} from "react-icons/fa";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import { StatsCard } from "@/components/StatsCard";
+import { currentUser } from "@clerk/nextjs";
 
-export default function Home() {
+export default async function Home() {
+    const user = await currentUser();
+
+    // If user is not authenticated, show welcome page
+    if (!user) {
+        return (
+            <div className="container mx-auto p-8 text-center">
+                <h1 className="text-4xl font-bold mb-8">Welcome to Form Builder</h1>
+                <p className="text-lg mb-8">
+                    Create, share, and collect responses from beautiful forms.
+                </p>
+                <div className="flex gap-4 justify-center">
+                    <Link 
+                        href="/sign-in" 
+                        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                    >
+                        Sign In
+                    </Link>
+                    <Link 
+                        href="/sign-up" 
+                        className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                    >
+                        Sign Up
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
+    // If user is authenticated, show dashboard
     return (
         <div className="container pt-4">
             <Suspense fallback={<StatsCards loading={true}/>}>

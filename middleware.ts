@@ -3,7 +3,6 @@ import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
   // Add public routes that don't require authentication
   publicRoutes: [
-    "/",
     "/api/webhook/clerk",
     "/api/webhook/stripe",
     "/api/uploadthing",
