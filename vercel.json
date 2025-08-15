@@ -9,5 +9,10 @@
       "maxDuration": 30
     }
   },
-  "regions": ["iad1"]
+  "regions": ["iad1"],
+  "build": {
+    "env": {
+      "NEXT_TELEMETRY_DISABLED": "1"
+    }
+  }
 }

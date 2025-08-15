@@ -8,6 +8,12 @@ const nextConfig = {
   // Add Vercel-specific optimizations
   swcMinify: true,
   
+  // Fix client reference manifest issues
+  experimental: {
+    // Ensure proper build output
+    outputFileTracingRoot: process.cwd(),
+  },
+  
   // Ensure proper handling of Clerk middleware
   async headers() {
     return [
