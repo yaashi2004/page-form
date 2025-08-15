@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     description: "Create, share, and collect responses from beautiful forms",
     icons: {
         icon: [
-            { url: '/application.png', type: 'image/png' },
             { url: '/favicon.svg', type: 'image/svg+xml' },
-            { url: '/paper.svg', type: 'image/svg+xml' },
+            { url: '/application.png', type: 'image/png', sizes: '32x32' },
+            { url: '/application.png', type: 'image/png', sizes: '16x16' },
         ],
-        shortcut: '/application.png',
+        shortcut: '/favicon.svg',
         apple: '/application.png',
     },
 };
@@ -35,6 +35,13 @@ export default function RootLayout({
     return (
         <ClerkProvider>
             <html lang="en">
+            <head>
+                <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/application.png" />
+                <link rel="icon" type="image/png" sizes="16x16" href="/application.png" />
+                <link rel="shortcut icon" href="/favicon.svg" />
+                <link rel="apple-touch-icon" href="/application.png" />
+            </head>
             <body className={inter.className}>
             <NextTopLoader/>
             <DesignerContextProvider>
