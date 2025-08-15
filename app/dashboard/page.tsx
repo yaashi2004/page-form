@@ -13,7 +13,7 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import { StatsCard } from "@/components/StatsCard";
 
-export default function Home() {
+export default function Dashboard() {
     return (
         <div className="container pt-4">
             <Suspense fallback={<StatsCards loading={true}/>}>
