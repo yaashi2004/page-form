@@ -1,8 +1,8 @@
-# 📝 Next.js Prisma Forms
+# Form Builder
 
-A form builder application built with Next.js and Prisma, enabling users to configure forms, share them with others, and collect data seamlessly. Inspired by the functionality of Google Forms, this app is designed for simplicity, flexibility, and scalability.
+A modern form builder application built with Next.js, Prisma, and Clerk authentication.
 
----
+<!-- Updated for Vercel deployment optimization -->
 
 ## 🚀 Features
 
@@ -118,11 +118,6 @@ Contributions are welcome! To get started:
 2. Create a new branch for your feature or bugfix.
 3. Commit your changes and open a pull request.
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
