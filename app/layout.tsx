@@ -15,7 +15,16 @@ const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
     title: "Form Builder",
-    description: "No desciption provided",
+    description: "Create, share, and collect responses from beautiful forms",
+    icons: {
+        icon: [
+            { url: '/favicon.svg', type: 'image/svg+xml' },
+            { url: '/paper.svg', type: 'image/svg+xml' },
+            { url: '/favicon.ico', type: 'image/x-icon' }
+        ],
+        shortcut: '/favicon.ico',
+        apple: '/favicon.ico',
+    },
 };
 
 export default function RootLayout({
