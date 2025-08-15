@@ -32,9 +32,13 @@ export default function Home() {
 }
 
 async function CardStatsWrapper() {
-    const stats = await GetFormStats();
-
-    return <StatsCards loading={false} data={stats}></StatsCards>
+    try {
+        const stats = await GetFormStats();
+        return <StatsCards loading={false} data={stats}></StatsCards>
+    } catch (error) {
+        // Fallback when Clerk or database fails
+        return <StatsCards loading={false} data={undefined}></StatsCards>
+    }
 }
 
 interface StatsCardProps {
@@ -51,7 +55,7 @@ export function StatsCards(props: StatsCardProps) {
                 title="Total Visits"
                 icon={<LuView className="text-blue-600"/>}
                 helperText="All time form visits"
-                value={data?.visits.toLocaleString() || ""}
+                value={data?.visits.toLocaleString() || "0"}
                 loading={loading}
                 className="shadow-md shadow-blue-600"
             />
@@ -60,7 +64,7 @@ export function StatsCards(props: StatsCardProps) {
                 title="Total Submissions"
                 icon={<LuView className="text-yellow-600"/>}
                 helperText="All time form submission"
-                value={data?.submissions.toLocaleString() || ""}
+                value={data?.submissions.toLocaleString() || "0"}
                 loading={loading}
                 className="shadow-md shadow-yellow-600"
             />
@@ -69,7 +73,7 @@ export function StatsCards(props: StatsCardProps) {
                 title="Submission rate"
                 icon={<LuView className="text-green-600"/>}
                 helperText="Visits that result in form submission"
-                value={data?.submissionRate.toLocaleString() + "%" || ""}
+                value={data?.submissionRate.toLocaleString() + "%" || "0%"}
                 loading={loading}
                 className="shadow-md shadow-green-600"
             />
@@ -78,7 +82,7 @@ export function StatsCards(props: StatsCardProps) {
                 title="Bounce rate"
                 icon={<LuView className="text-red-600"/>}
                 helperText="Visits that result in form submission"
-                value={data?.bounceRate.toLocaleString() + "%" || ""}
+                value={data?.bounceRate.toLocaleString() + "%" || "0%"}
                 loading={loading}
                 className="shadow-md shadow-red-600"
             />
@@ -134,15 +138,25 @@ function FormCardSkeleton() {
 }
 
 async function FormCards() {
-    const forms = await GetForms();
-
-    return (
-        <>
-            {
-                forms.map((form) => (<FormCard key={form.id} form={form}/>))
-            }
-        </>
-    );
+    try {
+        const forms = await GetForms();
+        return (
+            <>
+                {
+                    forms.map((form) => (<FormCard key={form.id} form={form}/>))
+                }
+            </>
+        );
+    } catch (error) {
+        // Fallback when Clerk or database fails
+        return (
+            <div className="col-span-full text-center py-8">
+                <p className="text-muted-foreground">
+                    Unable to load forms. Please check your connection.
+                </p>
+            </div>
+        );
+    }
 }
 
 function FormCard({form}: { form: Form }) {
